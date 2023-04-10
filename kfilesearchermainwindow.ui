@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KFileSearcherMainWindow</class>
+ <widget class="QMainWindow" name="KFileSearcherMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>832</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>桌面文件搜索器</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="kfilesearcher.qrc">
+    <normaloff>:/icon/icon.svg</normaloff>:/icon/icon.svg</iconset>
+  </property>
+  <widget class="QWidget" name="m_centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="m_inputLineEdit">
+        <property name="placeholderText">
+         <string>请输入搜索内容（支持拼音搜索）</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="m_filter_ComboBox">
+        <item>
+         <property name="text">
+          <string>所有</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>文件夹</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>文件</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="KFileDetailsView" name="m_detailsView"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="m_menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>832</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="m_exportAction"/>
+    <addaction name="m_hideAction"/>
+    <addaction name="m_quitAction"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="m_selectAllAction"/>
+    <addaction name="m_deleteAction"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>搜索</string>
+    </property>
+    <addaction name="m_regExpAction"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="m_statusbar"/>
+  <action name="m_quitAction">
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="m_exportAction">
+   <property name="text">
+    <string>将选中的文件导出到</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="m_selectAllAction">
+   <property name="text">
+    <string>全选</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="m_regExpAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>使用正则表达式</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="m_deleteAction">
+   <property name="text">
+    <string>删除选中文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="m_hideAction">
+   <property name="text">
+    <string>隐藏/显示</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Space</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KFileDetailsView</class>
+   <extends>QTableView</extends>
+   <header>kfiledetailsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="kfilesearcher.qrc"/>
+ </resources>
+ <connections/>
+</ui>
